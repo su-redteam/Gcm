@@ -1,0 +1,15 @@
+from gcm import GCM
+import requests.packages.urllib3
+
+requests.packages.urllib3.disable_warnings()
+
+#another GCM key
+gcm = GCM("AIzaSyB-DrluofQNo5Ov4YGxNrs6hpNuur2AfCI", debug = True)
+
+reg_id = 'dyQRQGGWixM:APA91bFkdnWkFwvvsA5vDLoBU-J90hPsjR1lh1SwTmNWWnyYdh__GJpAvz94gXc-D8YXlTKT-wDewkaZ0SJAIPjeFy3btEoOv-cMsmJMAjUg5JvL3ipzHe_Pu-BU2GO0nJwsdEbBWasv'
+
+data = {'the_message': 'You have x new friends', 'param2': 'value2'}
+
+response = gcm.plaintext_request(registration_id=reg_id, data=data)
+
+print(response)
